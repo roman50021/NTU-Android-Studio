@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class LR1Activity extends AppCompatActivity {
 
     private TextView textInfo;
     private Button buttonShowInfo;
@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.lr1);
 
         textInfo = findViewById(R.id.textInfo);
         buttonShowInfo = findViewById(R.id.buttonShowInfo);

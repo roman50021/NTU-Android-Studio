@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">LR1</string>
+    <string name="app_name_lr1">ЛР1</string>
+    <string name="app_name_lr2">ЛР2</string>
 </resources>
