@@ -14,20 +14,18 @@ import com.example.lr1.R;
 
 public class LR2Activity extends AppCompatActivity {
 
-    private EditText inputX, inputY;
+    private EditText inputA, inputB, inputC, inputX, inputY;
     private TextView resultText;
     private Button calculateButton, authorButton;
-
-    // Константи
-    private final double a = 5.0;
-    private final double b = 2.0;
-    private final double c = 1.0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lr2);
 
+        inputA = findViewById(R.id.inputA);
+        inputB = findViewById(R.id.inputB);
+        inputC = findViewById(R.id.inputC);
         inputX = findViewById(R.id.inputX);
         inputY = findViewById(R.id.inputY);
         resultText = findViewById(R.id.resultText);
@@ -51,41 +49,39 @@ public class LR2Activity extends AppCompatActivity {
 
     private void calculateExpression() {
         try {
-            String xStr = inputX.getText().toString().trim();
-            String yStr = inputY.getText().toString().trim();
+            double a = Double.parseDouble(inputA.getText().toString().trim());
+            double b = Double.parseDouble(inputB.getText().toString().trim());
+            double c = Double.parseDouble(inputC.getText().toString().trim());
+            double x = Double.parseDouble(inputX.getText().toString().trim());
+            double y = Double.parseDouble(inputY.getText().toString().trim());
 
-            if (xStr.isEmpty() || yStr.isEmpty()) {
-                Toast.makeText(this, "Будь ласка, введіть X та Y", Toast.LENGTH_SHORT).show();
+            double sqrt1 = b - c;
+            double sqrt2 = a - b + c;
+
+            if (sqrt1 < 0 || sqrt2 < 0) {
+                resultText.setText("\u274C Підкореневий вираз < 0");
                 return;
             }
 
-            double x = Double.parseDouble(xStr);
-            double y = Double.parseDouble(yStr);
-
-            if ((b - c) < 0 || (a - b + c) < 0) {
-                resultText.setText("❌ Підкореневий вираз < 0");
-                return;
-            }
-
-            double numerator = Math.pow(Math.tan(y), 3) + Math.pow(Math.sin(x), 5) * Math.sqrt(b - c);
-            double denominator = Math.sqrt(a - b + c);
+            double numerator = Math.pow(Math.tan(y), 3) + Math.pow(Math.sin(x), 5) * Math.sqrt(sqrt1);
+            double denominator = Math.sqrt(sqrt2);
             double result = numerator / denominator;
 
             if (Double.isNaN(result) || Double.isInfinite(result)) {
-                resultText.setText("❌ Обчислення дало некоректний результат (NaN або ∞)");
+                resultText.setText("\u274C Результат невалідний (NaN або \u221E)");
             } else {
                 resultText.setText(String.format("U = %.3f", result));
             }
 
-        } catch (Exception e) {
-            Toast.makeText(this, "Помилка при обчисленні", Toast.LENGTH_LONG).show();
+        } catch (NumberFormatException e) {
+            Toast.makeText(this, "\u2757 Введіть усі значення коректно", Toast.LENGTH_SHORT).show();
         }
     }
 
     private void showAuthorInfo() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Інформація про автора");
-        builder.setMessage("👨‍💻 Федько Роман Вадимович\n📚 Факультет: ФІОТ\n📖 Курс: 4, Група: ПІ-4-1\n🎯 Мета: Отримати глибокі знання з мобільної розробки");
+        builder.setMessage("\uD83D\uDC68\u200D\uD83D\uDCBB Федько Роман Вадимович\n\uD83D\uDCDA Факультет: ФІОТ\n\uD83D\uDCD6 Курс: 4, Група: ПІ-4-1\n\uD83C\uDFC6 Мета: Отримати глибокі знання з мобільної розробки");
         builder.setPositiveButton("OK", null);
         builder.show();
     }
