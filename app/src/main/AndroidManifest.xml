@@ -40,5 +40,10 @@
             android:exported="true"
             android:label="Лабораторна 4" />
 
+        <activity
+            android:name="com.example.lr5.LR5Activity"
+            android:exported="true"
+            android:label="Лабораторна 5" />
+
     </application>
 </manifest>
