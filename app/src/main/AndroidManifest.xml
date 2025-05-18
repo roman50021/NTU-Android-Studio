@@ -35,5 +35,10 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name="com.example.lr4.LR4Activity"
+            android:exported="true"
+            android:label="Лабораторна 4" />
+
     </application>
 </manifest>

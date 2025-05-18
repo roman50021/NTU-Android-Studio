@@ -81,7 +81,7 @@ public class LR2Activity extends AppCompatActivity {
     private void showAuthorInfo() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Інформація про автора");
-        builder.setMessage("\uD83D\uDC68\u200D\uD83D\uDCBB Федько Роман Вадимович\n\uD83D\uDCDA Факультет: ФІОТ\n\uD83D\uDCD6 Курс: 4, Група: ПІ-4-1\n\uD83C\uDFC6 Мета: Отримати глибокі знання з мобільної розробки");
+        builder.setMessage("\uD83D\uDC68\u200D\uD83D\uDCBB Федько Роман Вадимович\n\uD83D\uDCDA Факультет: ФТІТ\n\uD83D\uDCD6 Курс: 4, Група: ПІ-4-1\n\uD83C\uDFC6 Мета: Отримати глибокі знання з мобільної розробки");
         builder.setPositiveButton("OK", null);
         builder.show();
     }
